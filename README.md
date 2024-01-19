@@ -115,7 +115,7 @@ In this section, two variables are being established:
 
 `$PASSWORD_FOR_USERS = "Password1"`: This variable assigns a default password ("Password1") to all users. While using a universal password is not recommended for production, it is suitable for this lab.
 
-`$USER_FIRST_LAST_LIST = Get-Content .\names.txt`: This line reads a file named `names.txt()`, which contains a list of first and last names. Each entry in this file is expected to be formatted as "FirstName LastName", with one pair per line.
+`$USER_FIRST_LAST_LIST = Get-Content .\names.txt`: This line reads a file named [names.txt](https://github.com/sindycp/Active-Directory-Lab/blob/main/names.txt), which contains a list of first and last names. Each entry in this file is expected to be formatted as "FirstName LastName", with one pair per line.
 
 ### Transform Plain Text Password:
 ```powershell
