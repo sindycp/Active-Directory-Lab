@@ -38,12 +38,12 @@ I began the installation process by associating the ISO files with their corresp
 
 - **Windows Server 2019 Install:** Proceed through the on-screen instructions until you reach the account setup stage.
 
-(Insert Pic)
+![WS '19 SETUP](https://i.imgur.com/2Y37aOr.png)
 
 - **Establish an Administrative Account:** As a component of the installation process, you will receive a prompt to generate an administrator account. At this point, I supplied a username along with a strong and distinct password to bolster security. Given that this account possesses elevated permissions, it is imperative to ensure its thorough protection.
 
-(Insert Pic)
-(Insert Pic)
+![CREATE AA](https://i.imgur.com/tq68BlK.png)
+![AA LOGIN](https://i.imgur.com/v3BmZAe.png)
 
 ### Setting Up Operating Systems and Configuring Network Interface Cards (NICs)
 
@@ -62,27 +62,20 @@ This configuration has established a secure yet flexible network topology, which
 ## Incorporating Active Directory Domain Services
 
 Upon initiating Windows Server, I navigated to the Server Manager, where I carefully included the "Active Directory Domain Services" role.
-(Insert Pic)
-(Insert Pic)
-(Insert Pic)
-(Insert Pic)
+
+![ADS1](https://i.imgur.com/Qx0pUAD.png)
+![ADS2](https://i.imgur.com/j3pLAMm.png)
 
 ## Creating a Domain Admin Account
 - Launch Active Directory Users and Computers.
 - Right-click and choose New > User.
 - Input the necessary details for your new Domain Admin account and establish a robust password.
-- Right-click on the new account and click Properties then left-click on Member Of.
-- In the empty box under the prompt “Enter the object names..” enter Domain Admins, and click OK to apply changes.
-
-(Insert Pic)
-(Insert Pic)
-(Insert Pic)
 
 ## Configure DHCP Server
 Returning to the Server Manager, I implemented the "DHCP Server" role to guarantee dynamic allocation of IP addresses for our client machine.
 
-(Insert Pic)
-(Insert Pic)
+![DHCP1](https://i.imgur.com/yG03j14.png)
+![DHCP2](https://i.imgur.com/0nAVWBX.png)
 
 ## Organizing the Organizational Unit
 - Open Active Directory Users and Computers.
@@ -92,9 +85,7 @@ Returning to the Server Manager, I implemented the "DHCP Server" role to guarant
 - Open Server Manager and include the "Routing" role.
 - Configure Routing and Remote Access to establish an internal network.
 
-(Insert Pic)
-(Insert Pic)
-(Insert Pic)
+![(RRA1)](https://i.imgur.com/rNlvey1.png)
 
 ## Setting up NIC for Internet Access
 - Open Network and Sharing Center and navigate to "Change adapter settings."
@@ -158,7 +149,7 @@ Write-Host "Creating user: $($username)" -BackgroundColor Black -ForegroundColor
 
 This line exhibits a message in the console to indicate which user is currently being created.
 
-(Insert Pic)
+![SCRPT](https://i.imgur.com/a65cruY.png)
 
 ### Generate the New User:
 ```powershell
@@ -173,7 +164,7 @@ The primary objective of this script is to showcase the automation capabilities 
 ### Interaction with the Client and User Experience
 After preparing our Windows 10 VM, I set it up to establish a connection with our server's environment. Following that, I logged off and logged back in, replicating the experience of one of our users created in batches.
 
-(Insert Pic)
+![CLT](https://i.imgur.com/I8RDch3.png)
 
 ## Final Reflections and Conclusions
 
