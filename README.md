@@ -8,59 +8,58 @@ To replicate a genuine Active Directory environment, I engaged in this lab to gu
 
 In the course of this lab, we will undertake the following tasks:
 
-1. Establish Active Directory Domain Services from the ground up.
-2. Generate a dedicated Domain Admin account to enhance security and control measures.
-3. Implement a DHCP server to dynamically allocate IP addresses.
-4. Illustrate the creation of an Organizational Unit for improved user management.
-5. Explore the complexities of Routing and Remote Access to replicate a corporate intranet environment.
-6. Configure the Network Interface Card (NIC) to ensure both local and internet connectivity.
-7. Showcase mass user management by utilizing PowerShell to batch-add over 1000 users.
-8. Engage with our client machine, simulating a login process using one of the newly added users.
+- Establish Active Directory Domain Services from the ground up.
+- Generate a dedicated Domain Admin account to enhance security and control measures.
+- Implement a DHCP server to dynamically allocate IP addresses.
+- Illustrate the creation of an Organizational Unit for improved user management.
+- Explore the complexities of Routing and Remote Access to replicate a corporate intranet environment.
+- Configure the Network Interface Card (NIC) to ensure both local and internet connectivity.
+- Showcase mass user management by utilizing PowerShell to batch-add over 1000 users.
+- Engage with our client machine, simulating a login process using one of the newly added users.
 
-Tools Used
+## Technologies Employed
 
-Oracle VirtualBox
-Windows Server 2019
-Windows 10
-PowerShell
+- Oracle VirtualBox
+- Windows Server 2019
+- Windows 10
+- PowerShell
 
-Installation
+## Installation
 
-Virtual Machine Setup in VirtualBox
+### Virtual Machine Setup in VirtualBox
 1. Open Oracle VirtualBox and click "New."
 2. Name the first machine as "DC," select Microsoft Windows as the type, and choose Windows (64-bit) as the version.
 3. Allocate a minimum of 2 GB of RAM and create a new virtual hard disk with a capacity of at least 50 GB.
-4. Repeat the process for the Windows 10 machine, naming it "CLIENT."
+4. Repeat the process for the Windows 10 machine, naming it "CLIENT1."
 
-Operating System Installation and Initial Setup
+### Operating System Installation and Initial Setup
 
 I began the installation process by associating the ISO files with their corresponding Virtual Machines. Notably, setting up Windows Server 2019 demanded extra care to guarantee appropriate administrative access. Here are the details:
 
-Windows Server 2019 Install: Proceed through the on-screen instructions until you reach the account setup stage.
+- **Windows Server 2019 Install:** Proceed through the on-screen instructions until you reach the account setup stage.
 
 (Insert Pic)
 
-Establish an Administrative Account: As a component of the installation process, you will receive a prompt to generate an administrator account. At this point, I supplied a username along with a strong and distinct password to bolster security. Given that this account possesses elevated permissions, it is imperative to ensure its thorough protection.
+- **Establish an Administrative Account:** As a component of the installation process, you will receive a prompt to generate an administrator account. At this point, I supplied a username along with a strong and distinct password to bolster security. Given that this account possesses elevated permissions, it is imperative to ensure its thorough protection.
 
 (Insert Pic)
 (Insert Pic)
 
-Setting Up Operating Systems and Configuring Network Interface Cards (NICs)
+### Setting Up Operating Systems and Configuring Network Interface Cards (NICs)
 
 I commenced the installation process by associating the ISO files with their respective Virtual Machines (VMs). The on-screen instructions were generally straightforward, resulting in the successful installation of both operating systems.
 
 Furthermore, for our Domain Controller, it is crucial to configure dual Network Interface Cards (NICs) to ensure effective network management. Here's the configuration I implemented:
 
-1. NIC for Open Internet: The first NIC is set up to utilize Network Address Translation (NAT), allowing our Domain Controller to connect to the open Internet.
+- **NIC for Open Internet:** The first NIC is set up to utilize Network Address Translation (NAT), allowing our Domain Controller to connect to the open Internet.
 
-2. NIC for Internal Network: The second NIC is exclusively dedicated to our internal virtual network, ensuring isolated communication within our simulated environment.
+- **NIC for Internal Network:** The second NIC is exclusively dedicated to our internal virtual network, ensuring isolated communication within our simulated environment.
 
 This dual NIC setup provides the Domain Controller with the network versatility necessary for real-world applications, aligning seamlessly with the objectives of our lab.
 
 This configuration has established a secure yet flexible network topology, which is indispensable for our Active Directory Lab.
 
-
-Incorporating Active Directory Domain Services
+## Incorporating Active Directory Domain Services
 
 Upon initiating Windows Server, I navigated to the Server Manager, where I carefully included the "Active Directory Domain Services" role.
 (Insert Pic)
@@ -68,43 +67,43 @@ Upon initiating Windows Server, I navigated to the Server Manager, where I caref
 (Insert Pic)
 (Insert Pic)
 
-Creating a Domain Admin Account
-1. Launch Active Directory Users and Computers.
-2. Right-click and choose New > User.
-3. Input the necessary details for your new Domain Admin account and establish a robust password.
-4. Right-click on the new account and click Properties then left-click on Member Of.
-5. In the empty box under the prompt “Enter the object names..” enter Domain Admins, click OK to apply changes.
+## Creating a Domain Admin Account
+- Launch Active Directory Users and Computers.
+- Right-click and choose New > User.
+- Input the necessary details for your new Domain Admin account and establish a robust password.
+- Right-click on the new account and click Properties then left-click on Member Of.
+- In the empty box under the prompt “Enter the object names..” enter Domain Admins, and click OK to apply changes.
 
 (Insert Pic)
 (Insert Pic)
 (Insert Pic)
 
-Configure DHCP Server
+## Configure DHCP Server
 Returning to the Server Manager, I implemented the "DHCP Server" role to guarantee dynamic allocation of IP addresses for our client machine.
 
 (Insert Pic)
 (Insert Pic)
 
-Organizing the Organizational Unit
-1. Open Active Directory Users and Computers.
-2. Right-click on your domain, navigate to New > Organizational Unit, and establish a new OU.
+## Organizing the Organizational Unit
+- Open Active Directory Users and Computers.
+- Right-click on your domain, navigate to New > Organizational Unit, and establish a new OU.
 
-Setting up Routing and Remote Access
-1. Open Server Manager and include the "Routing" role.
-2. Configure Routing and Remote Access to establish an internal network.
+## Setting up Routing and Remote Access
+- Open Server Manager and include the "Routing" role.
+- Configure Routing and Remote Access to establish an internal network.
 
 (Insert Pic)
 (Insert Pic)
 (Insert Pic)
 
-Setting up NIC for Internet Access
-1. Open Network and Sharing Center and navigate to "Change adapter settings."
-2. Adjust the NIC settings to establish a connection to the external internet.
+## Setting up NIC for Internet Access
+- Open Network and Sharing Center and navigate to "Change adapter settings."
+- Adjust the NIC settings to establish a connection to the external internet.
 
-Adding Users using PowerShell
-In organizational settings, managing hundreds or even thousands of users manually can be inefficient. To streamline this process, I've integrated a PowerShell script for batch user creation. Let's analyze the script BulkAddUserScript.ps1 to comprehend its structure and functionality:
+## Adding Users using PowerShell
+In organizational settings, managing hundreds or even thousands of users manually can be inefficient. To streamline this process, I've integrated a PowerShell script for batch user creation. Let's analyze the script [AddUsers.ps1](https://github.com/sindycp/Active-Directory-Lab/blob/main/AddUsers.ps1) to comprehend its structure and functionality:
 
-Defining Variables:
+### Defining Variables:
 ```powershell
 # ----- Customize these Variables for Your Use Case ----- #
 $PASSWORD_FOR_USERS   = "Password1"
