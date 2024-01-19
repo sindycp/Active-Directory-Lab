@@ -27,10 +27,10 @@ In the course of this lab, we will undertake the following tasks:
 ## Installation
 
 ### Virtual Machine Setup in VirtualBox
-1. Open Oracle VirtualBox and click "New."
-2. Name the first machine as "DC," select Microsoft Windows as the type, and choose Windows (64-bit) as the version.
-3. Allocate a minimum of 2 GB of RAM and create a new virtual hard disk with a capacity of at least 50 GB.
-4. Repeat the process for the Windows 10 machine, naming it "CLIENT1."
+- Open Oracle VirtualBox and click "New."
+- Name the first machine as "DC," select Microsoft Windows as the type, and choose Windows (64-bit) as the version.
+- Allocate a minimum of 2 GB of RAM and create a new virtual hard disk with a capacity of at least 50 GB.
+- Repeat the process for the Windows 10 machine, naming it "CLIENT1."
 
 ### Operating System Installation and Initial Setup
 
