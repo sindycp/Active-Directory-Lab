@@ -1,5 +1,5 @@
 # VirtualBox-based Active Directory Lab
-
+![ACTIVE DIRECTORY LAB](https://i.imgur.com/sSR0Uh8.png)
 ## Overview  
 
 To replicate a genuine Active Directory environment, I engaged in this lab to guide through the fundamental steps of establishing and configuring a network based on Windows. The goal is twofold: firstly, to offer a detailed insight into the workings of Active Directory, and secondly, to delve into the broader realms of Windows networking. Utilizing Oracle's VirtualBox, I simulated an environment consisting of two virtual machines. The first machine operates on Windows Server 2019, serving as the Domain Controller, while the second runs Windows 10 to simulate a client experience.
